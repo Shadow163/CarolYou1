@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits de la catégorie {{ category.name }}{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <section class="row">
+            <div class="col-12">
+                <h1>Liste des produits de la catégorie {{ category.name }}</h1>
+            </div>
+            {% for product in category.products %}
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-3"> {# Changer le nombre de colonnes selon la taille d'écran #}
+                    <article class="card h-100">
+                        <img src="{{ asset('public/divers/images-' ~ category.id ) }}" class="card-img-top" alt="{{ category.name }}">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ category.name }}</h2> {# Utiliser product.name au lieu de category.name #}
+                            <p class="card-text">{{ product.detail }}</p>
+                            <h3>Images associées au produit :</h3>
+                            <div class="row">
+                                {% for image in product.images %}
+                                    <div class="col-4 mb-2">
+                                        <img src="{{ asset('divers/images/' ~ image) }}" class="img-thumbnail" alt="Image">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            {% endfor %}
+            {# Votre pagination ici #}
+        </section>
+    </main>
+{% endblock %}

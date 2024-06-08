@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarolYou{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/styles/app.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    {% for category, products in groupedProducts %}
+        <div class="container">
+            <h2>{{ category }}</h2>
+            <div class="row d-flex flex-wrap">
+                {% for product in products %}
+                 <div class="col-md-4">
+                    <div class="card">
+                        <a class="zxview" href="{{ path('showone', {'id': product.id}) }}">
+                            <img class="card-img-top" src="{{ asset('divers/images/' ~ product.image) }}" alt="mon image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.title|striptags }}</h5>
+                                <p class="card-text">{{ product.abstract|striptags|nl2br }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

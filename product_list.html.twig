@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Produits{% endblock %}
+
+{% block body %}
+    <h1>Liste des Produits</h1>
+    <form action="{{ path('route_to_submit_form') }}" method="post">
+        <select name="category_id">
+            {% for product in products %}
+                <option value="{{ product.category.id }}">{{ product.category.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Ajouter au panier</button>
+    </form>
+{% endblock %}

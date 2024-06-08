@@ -1,0 +1,72 @@
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ path('app_homepage') }}">Accueil</a>
+          </li>
+          <!-- Menu déroulant pour les produits -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="{{ path('showcategory', { 'category': 12 }) }}"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Produits
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <!-- Dropdown items can be added here -->
+            </ul>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+          {% if is_granted('ROLE_EDITOR') %}
+            <a href="{{ path('admin') }}" class="nav-link p-lg-4">
+              <i class="fa-solid fa-table-columns" title="Dashboard"></i>
+            </a>
+            <a href="{{ path('app_logout') }}" class="nav-link">
+              Bonjour, <br> {{ app.user.firstname }} &ensp; <i class="fa-solid fa-power-off"></i>
+            </a>
+          {% elseif is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{ path('app_logout') }}" class="nav-link">
+              Bonjour, <br> {{ app.user.lastname }} &ensp; <i class="fa-solid fa-power-off"></i>
+            </a>
+          {% else %}
+            <a class="nav-link" href="{{ path('app_login') }}">
+              Se connecter&ensp;<i class="fa-regular fa-user"></i>
+            </a>
+            <a class="nav-link" href="{{ path('app_register') }}">
+              S'inscrire&ensp;<i class="fa-regular fa-user"></i>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Background image -->
+  <div class="p-5 text-center bg-image" style="background-image: url('divers/images/younique2024.png'); background-size: contain; background-repeat: no-repeat; background-position: center; height: 80px;">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <h1 class="mb-3"></h1>
+      </div>
+    </div>
+  </div>
+  <!-- Background image -->
+</header>

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ main.title }} - Détails{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8">
+                <div class="col-md-12">{{product.title}}</div>
+                <div class="col-md-12">{{product.createdAt|date('D d M Y H:s')}} </div>
+                <div class="col-md-12"><img src="{{asset('divers/images/' ~ product.image )}}" alt=""> </div>
+                <div class="col-md-12">{{product.abstract}}</div>
+                <div class="col-md-12">{{product.detail}}</div>
+            </div>
+
+            <div class="col-md-4"></div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

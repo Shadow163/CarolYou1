@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Créer un compte</h2>
+
+                                {{ form_start(registrationForm) }}
+
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.Firstname, { 'attr': {'class': 'form-control form-control-lg', 'id': 'form3Example1cg'} }) }}
+                                    <!-- Replace 'Your Name' with the label for the firstname field -->
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.Lastname, { 'attr': {'class': 'form-control form-control-lg', 'id': 'form3Example1cg'} }) }}
+                                    <!-- Replace 'Your Name' with the label for the firstname field -->
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.Adress, { 'attr': {'class': 'form-control form-control-lg', 'id': 'form3Example1cg'} }) }}
+                                    <!-- Replace 'Your Name' with the label for the firstname field -->
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.Zipcode, { 'attr': {'class': 'form-control form-control-lg', 'id': 'form3Example1cg'} }) }}
+                                    <!-- Replace 'Your Name' with the label for the firstname field -->
+                                </div>
+
+                               
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.City, { 'attr': {'class': 'form-control form-control-lg', 'id': 'form3Example1cg'} }) }}
+                                    <!-- Replace 'Your Name' with the label for the firstname field -->
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.Country, { 'attr': {'class': 'form-control form-control-lg', 'id': 'form3Example1cg'} }) }}
+                                    <!-- Replace 'Your Name' with the label for the firstname field -->
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.email, { 'attr': {'class': 'form-control form-control-lg', 'id': 'form3Example3cg'} }) }}
+                                    <!-- Replace 'Your Email' with the label for the email field -->
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.plainPassword, { 'attr': {'class': 'form-control form-control-lg', 'id': 'form3Example4cg'} }) }}
+                                    <!-- Replace 'Password' with the label for the password field -->
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    {{ form_row(registrationForm.agreeTerms, { 'attr': {'class': 'form-check-input me-2', 'id': 'form2Example3cg'} }) }}
+                                    <!-- Replace 'I agree all statements...' with the label for the terms checkbox -->
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">S'enregistre</button>
+                                </div>
+
+                                {{ form_end(registrationForm) }}
+
+                                
+                                <p class="text-center text-muted mt-5 mb-0">Vous avez déjà un compte? <a href="{{path('app_login') }}" class="fw-bold text-body"><u>Login here</u></a></p>
+                                <div class="mb-3">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
